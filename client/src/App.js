@@ -17,6 +17,7 @@ import NoMatch from './pages/NoMatch';
 import SinglePost from './pages/SinglePost';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
+import About from './pages/About';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -68,6 +69,10 @@ function App() {
               <Route
                 path="*"
                 element={<NoMatch />}
+              />
+              <Route
+                path="/about"
+                element={<About />}
               />
             </Routes>
           </div>

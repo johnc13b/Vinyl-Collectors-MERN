@@ -36,6 +36,38 @@ export const QUERY_POST = gql`
   }
 `;
 
+// export const QUERY_RECORD = gql`
+//   query record($id: ID!) {
+//     record(_id: $id) {
+//       _id
+//       title
+//       artist
+//       comments {
+//         commentText
+//         _id
+//         createdAt
+//         username
+//       }
+//     }
+//   }
+// `;
+
+// export const QUERY_RECORDS= gql`
+//   query records($username: String) {
+//     records(username: $username) {
+//         _id
+//         title
+//         artist
+//         comments {
+//           commentText
+//           _id
+//           createdAt
+//           username
+//       }
+//     }
+//   }
+// `;
+
 export const QUERY_USER = gql`
   query user($username: String!) {
     user(username: $username) {
@@ -76,6 +108,17 @@ export const QUERY_ME = gql`
           username
         }
       }
+      # records {
+      #   _id
+      #   artist
+      #   title
+      #   reactions {
+      #     _id
+      #     createdAt
+      #     reactionBody
+      #     username
+      #   }
+      # }
       friends {
         _id
         username

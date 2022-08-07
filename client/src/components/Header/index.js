@@ -17,6 +17,7 @@ const Header = () => {
         </Link>
 
         <nav className="text-center">
+          <Link to="/about">About</Link>
           {Auth.loggedIn() ? (
             <>
               <Link to="/profile">Me</Link>

@@ -20,11 +20,11 @@ const typeDefs = gql`
     reactions: [Reaction]
   }
   
-  # type Record {
+  # type Collection {
   #   _id: ID
   #   title: String
   #   artist: String
-  #   comments: [Comment]
+  #   reactions: [Reaction]
   # }
 
   type Reaction {

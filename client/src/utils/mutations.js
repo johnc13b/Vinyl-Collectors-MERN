@@ -54,6 +54,20 @@ export const ADD_REACTION = gql`
   }
 `;
 
+// export const ADD_RECORD = gql`
+//   mutation addRecord($title: String!) {
+//     addRecord(title: $title) {
+//       _id
+//       title
+//       artist
+//       username
+//       comments {
+//         _id
+//       }
+//     }
+//   }
+// `;
+
 export const ADD_FRIEND = gql`
   mutation addFriend($id: ID!) {
     addFriend(friendId: $id) {
