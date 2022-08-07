@@ -26,7 +26,7 @@ const PostList = ({ posts, title }) => {
               <Link to={`/post/${post._id}`}>
                 <p>{post.postText}</p>
                 <p className="mb-0">
-                  Likes: {post.reactionCount} || {' '}
+                  {/* Likes: {post.reactionCount} || {' '} */}
                   {post.reactionCount ? 'see' : 'Join'}  the discussion!
                 </p>
               </Link>
