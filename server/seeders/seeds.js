@@ -56,14 +56,14 @@ db.once('open', async () => {
 
   // create friends
   for (let i = 0; i < 100; i += 1) {
-    const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-    const { _id: userId } = createdUsers.ops[randomUserIndex];
+    const randomUserIndex = Math.floor(Math.random() * createdUsers.insertedCount);
+    const { _id: userId } = createdUsers.insertedIds[randomUserIndex];
 
     let friendId = userId;
 
     while (friendId === userId) {
-      const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-      friendId = createdUsers.ops[randomUserIndex];
+      const randomUserIndex = Math.floor(Math.random() * createdUsers.insertedCount);
+      friendId = createdUsers.insertedIds[randomUserIndex];
     }
 
     await User.updateOne({ _id: userId }, { $addToSet: { friends: friendId } });
@@ -74,8 +74,9 @@ db.once('open', async () => {
   for (let i = 0; i < 100; i += 1) {
     const postText = faker.lorem.words(Math.round(Math.random() * 20) + 1);
 
-    const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-    const { username, _id: userId } = createdUsers.ops[randomUserIndex];
+    const randomUserIndex = Math.floor(Math.random() * createdUsers.insertedCount);
+    console.error(createdUsers.insertedIds[randomUserIndex]);
+    const { username, _id: userId } = createdUsers.insertedIds[randomUserIndex];
 
     const createdPost = await Post.create({ postText, username });
 
@@ -93,8 +94,8 @@ db.once('open', async () => {
   for (let i = 0; i < 100; i += 1) {
     const reactionBody = faker.lorem.words(Math.round(Math.random() * 20) + 1);
 
-    const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-    const { username } = createdUsers.ops[randomUserIndex];
+    const randomUserIndex = Math.floor(Math.random() * createdUsers.insertedCount);
+    const { username } = createdUsers.insertedIds[randomUserIndex];
 
     const randomPostIndex = Math.floor(Math.random() * createdPosts.length);
     const { _id: postId } = createdPosts[randomPostIndex];
