@@ -3,8 +3,7 @@ import { Navigate, useParams } from 'react-router-dom';
 
 import PostForm from '../components/PostForm';
 import PostList from '../components/PostList';
-// import FriendList from '../components/FriendList';
-// import RecordsList from '../components/RecordsList';
+import FriendList from '../components/FriendList';
 
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
@@ -71,23 +70,16 @@ const Profile = (props) => {
           />
         </div>
 
-        {/* <div className="col-12 mb-3 col-lg-8">
-          <RecordsList
-            posts={user.records}
-            title={`${user.username}'s records...`}
-          /> */}
-        {/* </div> */}
-
-        {/* <div className="col-12 col-lg-3 mb-3">
+        <div className="col-12 col-lg-3 mb-3">
           <FriendList
             username={user.username}
             friendCount={user.friendCount}
             friends={user.friends}
           />
-        </div> */}
+        </div>
       </div>
       <div className="mb-3">{!userParam && <PostForm />}</div>
-    </div >
+    </div>
   );
 };
 
